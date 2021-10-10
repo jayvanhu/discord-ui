@@ -1,0 +1,28 @@
+version: '3.7'
+services:
+  frontend:
+    build: ./frontend/
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules/
+    working_dir: /app
+    command: yarn dev
+  backend:
+    build: ./backend-nest/
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./backend-nest:/app
+      - /app/node_modules/
+    working_dir: /app
+    command: yarn start:dev
+  # backend:
+  #   image: golang:1.17-alpine
+  #   ports:
+  #     - "8080:8080"
+  #   volumes:
+  #     - ./backend-go:/app
+  #   working_dir: /app
+  #   command: go run main.go
