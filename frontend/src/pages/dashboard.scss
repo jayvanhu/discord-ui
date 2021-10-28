@@ -1,0 +1,12 @@
+@import '@styles/variables.scss';
+
+.dashboard {
+	display: flex;
+	background-color: gray;
+
+	main {
+		background-color: $bg-primary;
+		width: 100%;
+	}
+
+}

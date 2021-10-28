@@ -1,14 +1,15 @@
-import { useQuery } from "@apollo/client"
+import './dashboard.scss'
 
-// todo path
-import { queryUser } from "@src/api"
+import { Sidenav } from '@components/sidenav/sidenav'
+import { ChannelNav } from '@src/components/channel-nav/channel-nav'
 
 export function Dashboard() {
-	const { loading, error, data } = useQuery<string>(queryUser)
+	return <div className='dashboard'>
+		<Sidenav />
+		<ChannelNav />
 
-	if (error) return <h1>error foo</h1>
-	return <div>
-		<h1>dashbaord</h1>
-		<p>{JSON.stringify(data)}</p>
+		<main>
+			{/* todo */}
+		</main>
 	</div>
 }

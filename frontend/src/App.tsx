@@ -1,13 +1,14 @@
-import { useState } from 'react'
+import { HashRouter as Router } from 'react-router-dom'
 import './App.css'
+import '@styles/global.scss'
 
 import { Dashboard } from './pages/dashboard'
 
 function App() {
-	const [count, setCount] = useState(0)
-
 	return <div className="App">
-		<Dashboard></Dashboard>
+		<Router>
+			<Dashboard></Dashboard>
+		</Router>
 	</div>
 }
 
