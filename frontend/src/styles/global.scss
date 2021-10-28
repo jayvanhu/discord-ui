@@ -1,0 +1,14 @@
+@import '@styles/variables.scss';
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	color: $white;
+}
+
+a, button {
+	all: unset;
+	cursor: pointer;
+}
