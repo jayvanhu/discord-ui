@@ -1,0 +1,53 @@
+@use 'sass:color';
+@import '@styles/variables.scss';
+
+$gray: gray;
+
+.channel-nav-item {
+	$self: &;
+	display: flex;
+	align-items: center;
+	gap: 5px;
+	padding: 5px 10px;
+
+	&.active, &:hover {
+		background-color: $bg-primary;
+		border-radius: 10px;
+
+		#{$self}__name {
+			color: $white;
+		}
+
+		#{$self}__right {
+			visibility: visible;
+		}
+	}
+
+	&:hover {
+		background-color: color.adjust($bg-primary, $alpha: -0.4);
+	}
+
+	&__icon {
+		color: $gray;
+	}
+
+	&__name {
+		color: $gray;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	&__right {
+		visibility: hidden;
+		display: flex;
+		gap: 7px;
+		margin-left: auto;
+		color: lightgray;
+
+		*:hover {
+			color: $white;
+		}
+	}
+
+}
