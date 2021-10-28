@@ -11,11 +11,5 @@ export function className(classes: Record<string, any>): string {
 }
 
 export function makeBemRoot(root: string) {
-	return (child?: string): string => {
-		if (child) {
-			return `${root}__${child}`
-		} else {
-			return root
-		}
-	}
+	return (child?: string): string => child ? `${root}__${child}` : root
 }
