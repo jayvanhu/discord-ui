@@ -8,10 +8,12 @@ export default defineConfig({
 		alias: {
 			'@src': path.resolve(__dirname, './src'),
 			'@components': path.resolve(__dirname, './src/components'),
+			'@styles': path.resolve(__dirname, './src/styles'),
 		}
 	},
+	base: '/discord-ui/',
 	server: {
-		// todo conditionally set these based on docker env?
+		// TODO conditionally set these based on docker env?
 		host: '0.0.0.0',
 		watch: {
 			usePolling: true,
