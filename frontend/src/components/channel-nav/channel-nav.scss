@@ -1,0 +1,19 @@
+@import '@styles/variables.scss';
+
+.channel-nav {
+	display: flex;
+	flex-direction: column;
+	width: 310px;
+	padding: 0 10px;
+	background-color: $bg-secondary;
+
+	&__header {
+		padding: 0 10px;
+		text-align: left;
+	}
+
+	&__footer {
+		background-color: $bg-secondary-alt;
+		margin-top: auto;
+	}
+}
