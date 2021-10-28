@@ -1,0 +1,33 @@
+@import '@styles/variables.scss';
+
+.chat-sidenav {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 10px;
+	width: 70px;
+	height: 100vh;
+	padding: 10px 0px;
+	background-color: $bg-tertiary;
+
+	&__item {
+		$size: 40px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border-radius: 20px;
+		background-color: $bg-secondary;
+		width: $size;
+		height: $size;
+		position: relative;
+		line-height: $size;
+
+		transition-property: border-radius background-color;
+		transition-duration: 250ms;
+		&:hover, &.active {
+			border-radius: 15px;
+			background-color: $light-blue;
+		}
+	}
+
+}
