@@ -29,6 +29,7 @@ export class MockSidenavService implements ISidenavService {
 		return this.notifications
 	}
 
+	// TODO should the handler process an array of new notifications?
 	subscribeToNotifications(handler: (newNotif: SidenavNotification) => void) {
 		this.handler = handler
 	}

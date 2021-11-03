@@ -24,11 +24,11 @@ type Props = {
 }
 
 export function Sidenav({ servers, service }: Props) {
-	const [newMessageNotifications, setNotifs] = useState(() => service.getNotifications())
+	const [messageNotifications, setNotifs] = useState(() => service.getNotifications())
 	useEffect(() => {
 		service.subscribeToNotifications((newNotif: SidenavNotification) => {
 			setNotifs([
-				...newMessageNotifications,
+				...messageNotifications,
 				newNotif
 			])
 		})
@@ -43,7 +43,7 @@ export function Sidenav({ servers, service }: Props) {
 		</NavLink>
 
 		{
-			newMessageNotifications?.map(notif => {
+			messageNotifications?.map(notif => {
 				return <NavLink key={notif.id} className='' to={notif.id.toString()} aria-label='new message' onClick={() => {
 					const remainingNotifications = service.markNotificationAsRead(notif)
 					setNotifs(remainingNotifications)
