@@ -6,9 +6,10 @@
 	width: 310px;
 	padding: 0 10px;
 	background-color: $bg-secondary;
+	--channel-nav-side-padding: 10px;
 
 	&__header {
-		padding: 0 10px;
+		padding: 0 var(--channel-nav-side-padding);
 		text-align: left;
 	}
 
