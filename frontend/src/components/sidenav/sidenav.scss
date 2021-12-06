@@ -28,6 +28,17 @@
 			border-radius: 15px;
 			background-color: $light-blue;
 		}
+
+		// &.active {
+
+		// 	&::after {
+		// 		content: '';
+		// 		display: block;
+		// 		position: absolute;
+		// 		width: 20px;
+		// 		height: 20px;
+		// 	}
+		// }
 	}
 
 }
