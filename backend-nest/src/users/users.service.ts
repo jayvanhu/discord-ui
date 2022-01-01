@@ -23,9 +23,11 @@ export class UsersService {
 
 	}
 
-	/// Business Logic
+	// TODO add nestjs validation decorators
 	async signup(user: CreateUserDto) {
-		const existingUser = await this.repo.findOne({ where: { email: user.email } })
+		const { email } = user
+
+		const existingUser = await this.repo.findOne({ where: { email } })
 		if (existingUser) {
 			throw new BadRequestException('Email already taken.')
 		} else {
@@ -33,29 +35,17 @@ export class UsersService {
 		}
 	}
 
-	async login(email: string, password: string ) {
-		// book todo
-		const encrypted = hash(password)
-		const result = await this.repo.findOne({ where: { email, password: encrypted } })
-		if (result) {
-			//
-		} else {
-			//
-		}
-	}
-
-	/// Repository
-	findOneById(id: number) {
-		return this.repo.findOne(id)
-	}
-
-	findOneByEmail(email: string) {
-		return this.repo.findOne({ where: { email } })
-	}
-
 	createUser(userDto: CreateUserDto) {
 		userDto.password = hash(userDto.password)
 		return this.repo.insert(userDto)
+	}
+
+	findOneById(id: number): Promise<UserEntity> {
+		return this.repo.findOne(id)
+	}
+
+	findOneByEmail(email: string): Promise<UserEntity> {
+		return this.repo.findOne({ where: { email } })
 	}
 
 }
