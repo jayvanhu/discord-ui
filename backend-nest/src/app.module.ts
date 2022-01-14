@@ -1,11 +1,12 @@
 import { Module } from '@nestjs/common'
 import { GraphQLModule } from '@nestjs/graphql'
-import { join } from 'path'
+import { join, resolve } from 'path'
 import { AppController } from './app.controller'
 import { AppService } from './app.service'
-import { UsersController } from './users/users.controller'
-import { UsersResolver } from './users/users.resolver'
-import { UsersService } from './users/users.service'
+import { TypeOrmModule } from '@nestjs/typeorm'
+import { AuthModule } from './auth/auth.module'
+import { UsersModule } from './users/users.module'
+import { ServersModule } from './servers/servers.module';
 
 @Module({
 	imports: [
@@ -15,8 +16,19 @@ import { UsersService } from './users/users.service'
 			debug: true,
 			playground: true,
 		}),
+		TypeOrmModule.forRoot({
+			type: 'better-sqlite3',
+			synchronize: true,
+			database: resolve(__dirname, 'data/db.sqlite3'),
+			autoLoadEntities: true,
+		}),
+		UsersModule,
+		AuthModule,
+		ServersModule,
 	],
-	controllers: [AppController, UsersController],
-	providers: [AppService, UsersService, UsersResolver],
+	controllers: [AppController],
+	providers: [
+		AppService,
+	],
 })
-export class AppModule {}
+export class AppModule { }
